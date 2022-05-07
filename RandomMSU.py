@@ -19,7 +19,9 @@ for entry in resultat :
 		nbDir = nbDir+1
 
 f=open("./"+name+'\\'+name+'.msu',"w+")
-f.close()		
+f.close()
+k=open("./"+name+'\\'+"songLog.txt",'w+')
+k.close()		
 nbDir=nbDir-1 #on retire le dossier créé
 #print("Il y a "+str(nbDir)+" dossiers !")
 liste=[1,10,11,12,13,14,15,16,17,18,19,2,20,21,22,23,24,25,26,27,28,29,3,30,31,32,33,34,35,36,37,38,39,4,40,41,42,43,44,45,46,47,48,49,5,50,51,52,53,54,55,56,57,58,59,6,7,8,9]
@@ -40,6 +42,9 @@ while x<60: #on loop 59 fois pour les 59 fichiers du MSU
 				for file in recurs :
 					if j == x : #ici on a choisit le fichier qu'on veut copier
 						print (file.name)
+						k=open("./"+name+'\\'+"songLog.txt",'a')
+						k.write(file.name+'\n')
+						k.close()
 						shutil.copyfile(os.path.abspath(file),racine+'\\'+name+'-'+str(liste[x-1])+".pcm")
 						j = j+1
 					else :
@@ -49,26 +54,3 @@ while x<60: #on loop 59 fois pour les 59 fichiers du MSU
 			else : 
 				cpt = cpt+1 #dans ce else pour incrémenter le cpt
 	x = x+1
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
